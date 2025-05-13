@@ -568,63 +568,54 @@
         box-shadow: 0 6px 20px rgba(0,0,0,0.3);
       }
 
-      /* Footer */
-      .footer {
+      /* Rodapé do modelo CT Eric Belchote */
+      footer {
+        background-color: #06121e;
+        color: white;
+        text-align: center;
+        padding: 2rem;
+        margin-top: 3rem;
+      }
+      
+      .social-links {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .social-links a {
+        color: white;
+        font-size: 1.5rem;
+        transition: color 0.3s;
+      }
+      
+      .social-links a:hover {
+        color: #d4af37;
+      }
+
+      /* WhatsApp flutuante do modelo CT Eric Belchote */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        background-color: #25D366;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
         align-items: center;
         justify-content: center;
-        padding: 55px 0;
-        gap: 24px;
-        color: #FFF;
-        background-color: #06121e;
+        font-size: 1.8rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        transition: all 0.3s;
+        z-index: 100;
       }
-
-      .footer-icons {
-        display: flex;
-        gap: 8px;
-        color: #FFF;
-      }
-
-      .footer-icons a i {
-        font-size: 1.5rem;
-      }
-
-      /* WhatsApp Button */
-      .btn-whatsapp {
-        position: fixed;
-        bottom: 14px;
-        right: 24px;
-        z-index: 99;
-      }
-
-      .btn-whatsapp img {
-        max-width: 74px;
-        transition: transform 0.4s;
-      }
-
-      .btn-whatsapp img:hover {
-        transform: scale(1.1);
-      }
-
-      .btn-whatsapp .tooltip-text {
-        visibility: hidden;
-        position: absolute;
-        width: 120px;
-        top: 8px;
-        left: -144px;
-        padding: 6px;
-        border-radius: 8px;
-        text-align: center;
-        background-color: #232224;
-        color: #FFF;
-        opacity: 0;
-        transition: opacity 0.4s;
-      }
-
-      .btn-whatsapp:hover .tooltip-text {
-        visibility: visible;
-        opacity: 1;
+      
+      .whatsapp-float:hover {
+        background-color: #128C7E;
+        transform: translateY(-5px);
       }
     </style>
   </head>
@@ -680,7 +671,7 @@
       <div class="services-content container">
         <h2>Serviços oferecidos</h2>
         <p>
-          oferecemos uma variedade de serviços acadêmicos para atender todas as suas necessidades.
+          Oferecemos uma variedade de serviços acadêmicos para atender todas as suas necessidades.
           Desde trabalhos simples até projetos complexos, temos a solução ideal para você.
         </p>
       </div>
@@ -773,30 +764,18 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-icons">
-        <a href="https://www.instagram.com/teajudo_nafacul/">
-          <i class="fa-brands fa-instagram fa-2x"></i>
-        </a>
-        <a href="https://wa.me/5571984640101">
-          <i class="fa-brands fa-whatsapp fa-2x"></i>
-        </a>
+    <!-- Rodapé do modelo CT Eric Belchote -->
+    <footer>
+      <div class="social-links">
+        <a href="https://www.instagram.com/teajudo_nafacul/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5571984640101?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20acadêmicos!" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
-
-      <p>Copyright 2023 | Te Ajudou na Facul - Todos os direitos reservados.</p>
+      <p>&copy; 2023 Te Ajudou na Facul - Todos os direitos reservados</p>
     </footer>
 
-    <!-- WhatsApp Button -->
-    <a
-      href="https://wa.me/5571984640101"
-      class="btn-whatsapp"
-      target="_blank"
-      data-aos="zoom-in-up"
-      data-aos-delay="400"
-    >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Botão WhatsApp" />
-      <span class="tooltip-text">Fale conosco</span>
+    <!-- WhatsApp flutuante do modelo CT Eric Belchote -->
+    <a href="https://wa.me/5571984640101?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20acadêmicos!" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
