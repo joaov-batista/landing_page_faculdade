@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="Te ajudo na facul.png">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <title>Te Ajudou na Facul | Serviços Acadêmicos</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: 0;
+      }
+
+      body {
+        font-family: "Sora";
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        background-color: #06121e;
+      }
+
+      button {
+        font-family: "Sora";
+        cursor: pointer;
+      }
+
+      svg {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      a {
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      /* Header */
+      header {
+        width: 100%;
+      }
+
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      i {
+        color: #FFF;
+      }
+
+      .header-icons {
+        padding-top: 1%;
+        display: flex;
+        gap: 14px;
+      }
+
+      .header-icons a:hover i {
+        animation: translateY 0.7s infinite alternate;
+        color: #4fc3f7;
+      }
+
+      @keyframes translateY {
+        from {
+          transform: translateY(0) scale(1);
+        }
+        to {
+          transform: translateY(-8px) scale(1.1);
+        }
+      }
+
+      .header-button {
+        border: 1px solid #FFF;
+        padding: 8px 24px ;
+        border-radius: 4px;
+        color: #FFF;
+        background-color: transparent;
+        transition: background-color 0.7s;
+      }
+
+      .logo{
+        size: 20%;
+      }
+
+      .header-button:hover {
+        border: 1px solid #4fc3f7;
+        background-color: #4fc3f7;
+      }
+
+      .header-logo {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        margin-top: 14px;
+      }
+
+      .header-logo img {
+        width: 180px;
+      }
+
+      @media screen and (max-width: 768px) {
+        .header-content {
+          width: 100%;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .header-content i {
+          margin-top: 16px;
+          font-size: 34px;
+        }
+        .header-logo img {
+          width: 20px;
+          margin-top: 25px;
+        }
+        .header-button {
+          display: none;
+        }
+      }
+
+      .container {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 8px;
+      }
+
+      /* Hero Section */
+      .bg-home {
+        position: relative;
+      }
+
+      .bg-home::before {
+        content: "";
+        display: block;
+        position: absolute;
+        background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.1), #06121e), url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        opacity: 0.9;
+      }
+
+      .hero {
+        color: #FFF;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 14px;
+      }
+
+      .hero h1 {
+        text-align: center;
+        line-height: 150%;
+        max-width: 940px;
+        font-size: 46px;
+      }
+
+      .hero p {
+        text-align: center;
+        margin: 14px 0;
+      }
+
+      .button-contact {
+        padding: 16px 32px;
+        color: #FFF;
+        background: linear-gradient(135deg, #4a6fa5 0%, #166088 100%);
+        border: 0;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 14px 0;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .button-contact:hover {
+        animation: scaleButton 0.8s alternate infinite;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        transform: translateY(-2px);
+      }
+
+      @keyframes scaleButton {
+        from {
+          transform: scale(1) translateY(-2px);
+        }
+        to {
+          transform: scale(1.07) translateY(-2px);
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .hero {
+          min-height: 60vh;
+        }
+        .hero h1 {
+          font-size: 34px;
+          padding: 0 14px;
+          width: 100%;
+        }
+        .hero p {
+          font-size: 14px;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .hero h1 {
+          font-size: 24px;
+        }
+      }
+
+      /* About Section */
+      .about {
+        background-color: #06121e;
+        overflow: hidden;
+        color: #FFF;
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 34px 14px 64px 14px;
+      }
+
+      .about-content img {
+        max-width: 570px;
+        border-radius: 10px;
+      }
+
+      .about-content div {
+        flex: 1;
+      }
+
+      .about-description h2 {
+        font-size: 38px;
+        margin-bottom: 24px;
+      }
+
+      .about-description p {
+        margin-bottom: 14px;
+        line-height: 150%;
+      }
+
+      @media screen and (max-width: 768px) {
+        .about-content {
+          flex-direction: column;
+        }
+      }
+
+      /* Services Section */
+      .services {
+        background-color: #FFF;
+        color: #232224;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 54px 14px;
+      }
+
+      .services-content h2 {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 38px;
+        margin-bottom: 14px;
+        color: #166088;
+      }
+
+      .services-content p {
+        line-height: 150%;
+        margin-bottom: 14px;
+        text-align: center;
+        max-width: 780px;
+      }
+
+      .services-grid {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 20px;
+        padding: 0 44px 34px 44px;
+      }
+
+      .service-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: #FFF;
+        border-radius: 8px;
+        box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        min-height: 100%;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      }
+
+      .service-card img {
+        width: 100%;
+        max-width: 354px;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .service-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: #FFF;
+        flex-grow: 1;
+      }
+
+      .service-info strong {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+        color: #4a6fa5;
+        font-weight: 600;
+      }
+
+      .service-info ul {
+        margin-bottom: 20px;
+        padding-left: 20px;
+        flex-grow: 1;
+      }
+
+      .service-info ul li {
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+
+      .service-info button {
+        color: #FFF;
+        background-color: #4a6fa5;
+        padding: 10px 16px;
+        border-radius: 6px;
+        border: 0;
+        align-self: flex-start;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .service-info button:hover {
+        background-color: #166088;
+      }
+
+      @media screen and (max-width: 768px) {
+        .services-grid {
+          flex-direction: column;
+          padding: 0 20px 34px;
+          gap: 30px;
+        }
+        
+        .service-card {
+          max-width: 100%;
+        }
+        
+        .service-info {
+          padding: 18px;
+        }
+        
+        .service-info strong {
+          font-size: 1.2rem;
+        }
+      }
+
+      /* Testimonials */
+      .testimonials {
+        background-color: #f1f8fe;
+        padding: 4rem 0;
+      }
+
+      .testimonials h2 {
+        text-align: center;
+        font-size: 38px;
+        margin-bottom: 2rem;
+        color: #166088;
+      }
+
+      .testimonials-grid {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 0 2rem 3rem;
+      }
+
+      .testimonial-card {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        position: relative;
+        max-width: 350px;
+      }
+
+      .testimonial-card::before {
+        content: '"';
+        font-size: 5rem;
+        color: rgba(74, 111, 165, 0.1);
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        line-height: 1;
+      }
+
+      .testimonial-content {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 1.5rem;
+        font-style: italic;
+      }
+
+      .testimonial-author {
+        font-weight: bold;
+        color: #4a6fa5;
+      }
+
+      @media screen and (max-width: 768px) {
+        .testimonials-grid {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      /* Combo Offer - Improved Section */
+      .combo-offer {
+        background-color: #4a6fa5;
+        color: white;
+        padding: 4rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .combo-offer::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+        animation: shine 3s infinite;
+      }
+
+      @keyframes shine {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .combo-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #ff5722;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 14px;
+        transform: rotate(15deg);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+
+      .combo-container {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .combo-offer h2 {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      }
+
+      .combo-offer p {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .combo-price {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #ffeb3b;
+        margin: 20px 0;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+
+      .combo-timer {
+        background-color: rgba(0,0,0,0.2);
+        padding: 10px 20px;
+        border-radius: 30px;
+        display: inline-block;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+
+      .combo-button {
+        padding: 16px 40px;
+        background-color: #ffeb3b;
+        color: #333;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .combo-button:hover {
+        background-color: #fff;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      }
+
+      /* Footer */
+      .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 55px 0;
+        gap: 24px;
+        color: #FFF;
+        background-color: #06121e;
+      }
+
+      .footer-icons {
+        display: flex;
+        gap: 8px;
+        color: #FFF;
+      }
+
+      .footer-icons a i {
+        font-size: 1.5rem;
+      }
+
+      /* WhatsApp Button */
+      .btn-whatsapp {
+        position: fixed;
+        bottom: 14px;
+        right: 24px;
+        z-index: 99;
+      }
+
+      .btn-whatsapp img {
+        max-width: 74px;
+        transition: transform 0.4s;
+      }
+
+      .btn-whatsapp img:hover {
+        transform: scale(1.1);
+      }
+
+      .btn-whatsapp .tooltip-text {
+        visibility: hidden;
+        position: absolute;
+        width: 120px;
+        top: 8px;
+        left: -144px;
+        padding: 6px;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #232224;
+        color: #FFF;
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+
+      .btn-whatsapp:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="bg-home">
+      <header>
+          <div class="header-icons" data-aos="fade-down">
+          </div>
+          <div class="header-logo" data-aos="fade-up" data-aos-delay="300">
+            <img
+              data-aos="flip-up"
+              data-aos-delay="300"
+              data-aos-duration="1500"
+              alt=""
+            />
+          </div>
+          <div>
+            
+          </div>
+        </nav>
+        <main class="hero container" data-aos="fade-up" data-aos-delay="400">
+          <h1>SERVIÇOS ACADÊMICOS PARA GARANTIR SUA APROVAÇÃO!</h1>
+          <p>Conte com uma profissional especializada para te ajudar com TCC, artigos científicos e muito mais</p>
+          <a href="orcamento.html" class="button-contact">
+            Solicitar Orçamento
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </main>
+      </header>
+    </div>
+
+    <!-- About -->
+    <section class="about">
+      <div class="container about-content">
+        <div data-aos="zoom-in" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Estudante feliz" />
+        </div>
+        <div class="about-description" data-aos="zoom-out-left" data-aos-delay="250">
+          <h2>Sobre a "Te Ajudo na Facul"</h2>
+          <p>
+            Sou uma profissional especializada em auxiliar estudantes universitários com seus trabalhos acadêmicos. Com anos de experiência, ofereço suporte completo desde a pesquisa até a finalização do seu projeto.
+          </p>
+          <p>
+            Minha missão é aliviar sua carga acadêmica e garantir que você conquiste os melhores resultados em seus trabalhos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+      <div class="services-content container">
+        <h2>Serviços oferecidos</h2>
+        <p>
+          ofereço uma variedade de serviços acadêmicos para atender todas as suas necessidades.
+          Desde trabalhos simples até projetos complexos, temos a solução ideal para você.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="150">
+          <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="TCC" />
+          <div class="service-info">
+            <strong>Trabalho de Conclusão de Curso</strong>
+            <ul>
+              <li>Pesquisa científica</li>
+              <li>Redação acadêmica</li>
+              <li>Formatação ABNT</li>
+              <li>Orientação na apresentação</li>
+            </ul>
+            <a href="orcamento.html" class="button-contact" style="padding: 10px 16px; font-size: 14px;">Solicitar</a>
+          </div>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="250">
+          <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Artigos Científicos" />
+          <div class="service-info">
+            <strong>Artigos Científicos</strong>
+            <ul>
+              <li>Revisão bibliográfica</li>
+              <li>Metodologia científica</li>
+              <li>Análise de dados</li>
+              <li>Formatação para publicação</li>
+            </ul>
+            <a href="orcamento.html" class="button-contact" style="padding: 10px 16px; font-size: 14px;">Solicitar</a>
+          </div>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Outros Serviços" />
+          <div class="service-info">
+            <strong>Outros Serviços</strong>
+            <ul>
+              <li>Resenhas e resumos</li>
+              <li>Realização de matérias online</li>
+              <li>Slides para apresentações</li>
+              <li>Traduções acadêmicas</li>
+            </ul>
+            <a href="orcamento.html" class="button-contact" style="padding: 10px 16px; font-size: 14px;">Solicitar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <h2>Depoimentos</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="testimonial-content">
+            <p>Ana, muitíssimo obrigado pelo excelente trabalho! Graças a sua dedicação, atenção e disponibilidade eu consegui uma ótima nota. Desta maneira, consegui a conclusão do meu curso. Muito obrigado!</p>
+          </div>
+          <div class="testimonial-author">— Cliente Satisfeito</div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="250">
+          <div class="testimonial-content">
+            <p>Você não é apenas excelente no que faz, você é humana, atenciosa. Que em sua vida você desfrute de todas as bençãos que estão reservadas para você!</p>
+          </div>
+          <div class="testimonial-author">— Cliente Agradecido</div>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="testimonial-content">
+            <p>Boa noite! Passando para agradecer 😊, visa mishima no trabalho 😉</p>
+          </div>
+          <div class="testimonial-author">— Cliente Feliz</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Combo Offer - Improved Section -->
+    <section class="combo-offer">
+      <div class="combo-badge">OFERTA ESPECIAL</div>
+      <div class="combo-container">
+        <h2>COMBO COMPLETO TCC!</h2>
+        <p>TCC + Revisão/Artigo + Slides + Resumo + Orientação na Apresentação</p>
+        <p>Tudo que você precisa para arrasar no seu trabalho final com um desconto especial!</p>
+        
+        <div class="combo-price">R$ 1.499,99 <span style="font-size: 1rem; text-decoration: line-through; color: #ccc;">R$ 1.999,99</span></div>
+        
+        <div class="combo-timer">
+          <i class="fas fa-clock"></i> Oferta válida por: <span id="countdown">24:59:59</span>
+        </div>
+        
+        <a href="orcamento.html" class="combo-button">
+          Quero o Combo
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-icons">
+        <a href="https://www.instagram.com/teajudo_nafacul/">
+          <i class="fa-brands fa-instagram fa-2x"></i>
+        </a>
+        <a href="https://wa.me/5571984640101">
+          <i class="fa-brands fa-whatsapp fa-2x"></i>
+        </a>
+      </div>
+
+      <p>Copyright 2023 | Te Ajudou na Facul - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/5571984640101"
+      class="btn-whatsapp"
+      target="_blank"
+      data-aos="zoom-in-up"
+      data-aos-delay="400"
+    >
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Botão WhatsApp" />
+      <span class="tooltip-text">Fale conosco</span>
+    </a>
+
+    <script>
+      // Initialize AOS animations
+      AOS.init();
+      
+      // Countdown timer
+      function updateCountdown() {
+        const now = new Date();
+        const endOfDay = new Date();
+        endOfDay.setHours(23, 59, 59, 999);
+        
+        const diff = endOfDay - now;
+        
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById('countdown').textContent = 
+          `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      }
+      
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    </script>
+  </body>
+</html>

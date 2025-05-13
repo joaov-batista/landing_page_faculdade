@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Solicitar Orçamento | Te Ajudou na Facul</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: 0;
+      }
+
+      body {
+        font-family: "Sora";
+        background-color: #f8f9fa;
+      }
+
+      button {
+        font-family: "Sora";
+        cursor: pointer;
+      }
+
+      a {
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      /* Header */
+      header {
+        width: 100%;
+        background-color: #06121e;
+        padding: 1rem 0;
+      }
+
+      .header-content {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header-logo img {
+        height: 50px;
+      }
+
+      .back-button {
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 1rem;
+      }
+
+      .back-button i {
+        margin-right: 8px;
+      }
+
+      /* Quote Form Section */
+      .quote-form-section {
+        padding: 3rem 0;
+      }
+
+      .form-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      .form-title {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .form-title h1 {
+        font-size: 2rem;
+        color: #166088;
+        margin-bottom: 0.5rem;
+      }
+
+      .form-title p {
+        color: #666;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-family: "Sora";
+        transition: border-color 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: #4a6fa5;
+        box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+      }
+
+      .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .services-checkbox {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+      }
+
+      .checkbox-group input {
+        width: auto;
+        margin-right: 0.5rem;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 14px;
+        background-color: #25D366;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .submit-btn::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(0.8);
+          opacity: 0.5;
+        }
+        70% {
+          transform: scale(1.1);
+          opacity: 0.3;
+        }
+        100% {
+          transform: scale(0.8);
+          opacity: 0.5;
+        }
+      }
+
+      .submit-btn:hover {
+        background-color: #128C7E;
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+      }
+
+      .submit-btn i {
+        font-size: 1.2rem;
+      }
+
+      /* Form validation */
+      .form-group.error input,
+      .form-group.error textarea,
+      .form-group.error select {
+        border-color: #ff4444;
+      }
+
+      .error-message {
+        color: #ff4444;
+        font-size: 0.8rem;
+        margin-top: 5px;
+        display: none;
+      }
+
+      .form-group.error .error-message {
+        display: block;
+      }
+
+      /* Success message */
+      .success-message {
+        display: none;
+        text-align: center;
+        padding: 20px;
+        background-color: #d4edda;
+        color: #155724;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .success-message i {
+        font-size: 2rem;
+        color: #28a745;
+        margin-bottom: 10px;
+      }
+
+      /* Footer */
+      .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 0;
+        gap: 24px;
+        color: #FFF;
+        background-color: #06121e;
+        text-align: center;
+      }
+
+      .footer-icons {
+        display: flex;
+        gap: 8px;
+        color: #FFF;
+      }
+
+      .footer-icons a i {
+        font-size: 1.5rem;
+      }
+
+      .footer p {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      /* WhatsApp Button */
+      .btn-whatsapp {
+        position: fixed;
+        bottom: 14px;
+        right: 24px;
+        z-index: 99;
+      }
+
+      .btn-whatsapp img {
+        max-width: 74px;
+        transition: transform 0.4s;
+      }
+
+      .btn-whatsapp img:hover {
+        transform: scale(1.1);
+      }
+
+      .btn-whatsapp .tooltip-text {
+        visibility: hidden;
+        position: absolute;
+        width: 120px;
+        top: 8px;
+        left: -144px;
+        padding: 6px;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #232224;
+        color: #FFF;
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+
+      .btn-whatsapp:hover .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      @media screen and (max-width: 768px) {
+        .form-container {
+          padding: 1.5rem;
+        }
+        
+        .form-title h1 {
+          font-size: 1.5rem;
+        }
+        
+        .services-checkbox {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <a href="index.html" class="back-button">
+          <i class="fas fa-arrow-left"></i> Voltar para Home
+        </a>
+        <div style="width: 100px;"></div> <!-- Espaço para alinhamento -->
+      </div>
+    </header>
+
+    <!-- Quote Form Section -->
+    <section class="quote-form-section">
+      <div class="form-container">
+        <div class="form-title">
+          <h1>Solicite Seu Orçamento</h1>
+          <p>Preencha o formulário abaixo e entraremos em contato para discutir seu projeto</p>
+        </div>
+        
+        <div class="success-message" id="success-message">
+          <i class="fas fa-check-circle"></i>
+          <h3>Solicitação Enviada!</h3>
+          <p>Em breve entraremos em contato pelo WhatsApp para discutir seu projeto.</p>
+        </div>
+        
+        <form id="service-form">
+          <div class="form-group">
+            <label for="name">Nome Completo</label>
+            <input type="text" id="name" name="name" required>
+            <div class="error-message">Por favor, insira seu nome completo</div>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+            <div class="error-message">Por favor, insira um e-mail válido</div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefone (WhatsApp)</label>
+            <input type="tel" id="phone" name="phone" required>
+            <div class="error-message">Por favor, insira um número de telefone válido</div>
+          </div>
+          <div class="form-group">
+            <label for="course">Curso</label>
+            <input type="text" id="course" name="course" required>
+            <div class="error-message">Por favor, informe seu curso</div>
+          </div>
+          <div class="form-group">
+            <label for="institution">Instituição de Ensino</label>
+            <input type="text" id="institution" name="institution" required>
+            <div class="error-message">Por favor, informe sua instituição de ensino</div>
+          </div>
+          
+          <div class="form-group">
+            <label>Serviços Desejados</label>
+            <div class="services-checkbox">
+              <div class="checkbox-group">
+                <input type="checkbox" id="tcc" name="services" value="TCC">
+                <label for="tcc">TCC</label>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="articles" name="services" value="Artigos Científicos">
+                <label for="articles">Artigos Científicos</label>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="reviews" name="services" value="Resenhas">
+                <label for="reviews">Resenhas</label>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="summaries" name="services" value="Resumos">
+                <label for="summaries">Resumos</label>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="online" name="services" value="Realização de matérias on-line">
+                <label for="online">Matérias Online</label>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="combo" name="services" value="Combo TCC Completo">
+                <label for="combo">Combo TCC Completo</label>
+              </div>
+              <div class="checkbox-group">
+                <input type="checkbox" id="other" name="services" value="Outros">
+                <label for="other">Outros</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="details">Detalhes do Serviço</label>
+            <textarea id="details" name="details" placeholder="Descreva aqui os detalhes do seu projeto, prazos, requisitos específicos, etc." required></textarea>
+            <div class="error-message">Por favor, descreva seu projeto</div>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            <i class="fab fa-whatsapp"></i> Enviar para WhatsApp
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-icons">
+        <a href="https://www.instagram.com/teajudo_nafacul/">
+          <i class="fa-brands fa-instagram fa-2x"></i>
+        </a>
+        <a href="https://wa.me/5571984640101">
+          <i class="fa-brands fa-whatsapp fa-2x"></i>
+        </a>
+      </div>
+      <p>Copyright 2023 | Te Ajudou na Facul - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/5571984640101"
+      class="btn-whatsapp"
+      target="_blank"
+    >
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Botão WhatsApp" />
+      <span class="tooltip-text">Fale conosco</span>
+    </a>
+
+    <script>
+      // Form validation
+      function validateField(field) {
+        if (!field.value.trim()) {
+          field.closest('.form-group').classList.add('error');
+          return false;
+        }
+        
+        // Email validation
+        if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+          field.closest('.form-group').classList.add('error');
+          return false;
+        }
+        
+        // Phone validation (simple check for at least 10 digits)
+        if (field.id === 'phone' && field.value.replace(/\D/g, '').length < 10) {
+          field.closest('.form-group').classList.add('error');
+          return false;
+        }
+        
+        field.closest('.form-group').classList.remove('error');
+        return true;
+      }
+      
+      // Real-time validation
+      document.querySelectorAll('input, textarea').forEach(field => {
+        field.addEventListener('blur', () => validateField(field));
+      });
+      
+      // Form submission
+      document.getElementById('service-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        let isValid = true;
+        
+        // Validate all required fields
+        document.querySelectorAll('#service-form input[required], #service-form textarea[required]').forEach(field => {
+          if (!validateField(field)) {
+            isValid = false;
+          }
+        });
+        
+        // Validate at least one service is selected
+        const servicesSelected = document.querySelectorAll('input[name="services"]:checked').length > 0;
+        if (!servicesSelected) {
+          document.querySelector('.services-checkbox').style.border = '1px solid #ff4444';
+          document.querySelector('.services-checkbox').style.padding = '10px';
+          document.querySelector('.services-checkbox').style.borderRadius = '5px';
+          isValid = false;
+        } else {
+          document.querySelector('.services-checkbox').style.border = 'none';
+          document.querySelector('.services-checkbox').style.padding = '0';
+        }
+        
+        if (!isValid) {
+          return;
+        }
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const course = document.getElementById('course').value;
+        const institution = document.getElementById('institution').value;
+        const details = document.getElementById('details').value;
+        
+        // Get selected services
+        const services = [];
+        document.querySelectorAll('input[name="services"]:checked').forEach(checkbox => {
+          services.push(checkbox.value);
+        });
+        
+        // Create WhatsApp message
+        let message = `Olá! Gostaria de solicitar um orçamento para os seguintes serviços:\n\n`;
+        message += `*Nome:* ${name}\n`;
+        message += `*Telefone:* ${phone}\n`;
+        message += `*E-mail:* ${email}\n`;
+        message += `*Curso:* ${course}\n`;
+        message += `*Instituição:* ${institution}\n\n`;
+        message += `*Serviços Desejados:* ${services.join(', ')}\n\n`;
+        message += `*Detalhes:*\n${details}\n\n`;
+        message += `Por favor, me envie mais informações sobre valores e prazos. Obrigado!`;
+        
+        // Show success message
+        document.getElementById('success-message').style.display = 'block';
+        document.getElementById('service-form').style.display = 'none';
+        
+        // Scroll to success message
+        document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
+        
+        // Encode for URL
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Open WhatsApp after a short delay
+        setTimeout(() => {
+          window.open(`https://wa.me/5571984640101?text=${encodedMessage}`, '_blank');
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>
